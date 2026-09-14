@@ -1,72 +1,73 @@
-```html
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <title>میری شاعری ❤️</title>
 
     <style>
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 25px;
-
-            font-family: "Noto Nastaliq Urdu",
-                         "Jameel Noori Nastaleeq",
-                         "Noto Naskh Arabic",
-                         serif;
-
-            background:
-                radial-gradient(circle at 20% 20%, #5a102d 0%, transparent 35%),
-                radial-gradient(circle at 80% 80%, #3d0b25 0%, transparent 35%),
-                linear-gradient(135deg, #090005, #250817, #100007);
-
-            color: white;
+        html {
+            width: 100%;
+            min-height: 100%;
+            background: #090005;
             overflow-x: hidden;
         }
 
+        body {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
 
-        /* Background glow */
+            padding: 25px 10px 40px;
 
-        body::before {
-            content: "";
-            position: fixed;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    #5a102d 0%,
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    #3d0b25 0%,
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #090005,
+                    #250817,
+                    #100007
+                );
 
-            width: 400px;
-            height: 400px;
+            color: white;
 
-            border-radius: 50%;
+            font-family:
+                "Noto Nastaliq Urdu",
+                "Jameel Noori Nastaleeq",
+                "Noto Naskh Arabic",
+                serif;
 
-            background: rgba(255, 60, 120, 0.08);
-
-            filter: blur(100px);
-
-            top: -150px;
-            left: -150px;
-
-            pointer-events: none;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
 
-        /* Floating Hearts */
+        /* Floating hearts */
 
         .heart {
             position: fixed;
 
-            bottom: -40px;
+            bottom: -50px;
 
             color: #ff5c91;
 
@@ -77,6 +78,8 @@
             animation: floating 9s linear infinite;
 
             pointer-events: none;
+
+            z-index: 1;
         }
 
         .heart:nth-child(1) {
@@ -102,12 +105,12 @@
         @keyframes floating {
 
             0% {
-                transform: translateY(0) scale(0.7);
+                transform: translateY(0) scale(.7);
                 opacity: 0;
             }
 
             20% {
-                opacity: 0.7;
+                opacity: .7;
             }
 
             100% {
@@ -117,47 +120,55 @@
         }
 
 
-        /* Main Card */
+        /* Main card */
 
         .card {
 
+            position: relative;
+
+            z-index: 2;
+
             width: 100%;
+
             max-width: 900px;
 
-            padding: 55px 40px;
+            margin: 0 auto;
+
+            padding: 40px 25px;
 
             text-align: center;
 
-            background: rgba(255, 255, 255, 0.055);
+            background: rgba(255,255,255,.055);
 
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255,255,255,.15);
 
-            border-radius: 28px;
+            border-radius: 25px;
 
-            backdrop-filter: blur(18px);
+            backdrop-filter: blur(15px);
 
             box-shadow:
-                0 25px 80px rgba(0, 0, 0, 0.65),
-                inset 0 0 40px rgba(255, 100, 150, 0.03);
+                0 25px 80px rgba(0,0,0,.65);
 
-            animation: appear 1.2s ease;
+            animation: appear 1s ease;
         }
+
 
         @keyframes appear {
 
             from {
                 opacity: 0;
-                transform: translateY(35px);
+                transform: translateY(30px);
             }
 
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
 
-        /* Small Heading */
+        /* Small heading */
 
         .small {
 
@@ -167,42 +178,42 @@
 
             font-size: 12px;
 
-            letter-spacing: 3px;
+            letter-spacing: 2px;
 
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
 
-        /* Main Heading */
+        /* Main heading */
 
         h1 {
 
-            font-size: clamp(38px, 7vw, 65px);
+            font-size: clamp(35px, 8vw, 65px);
 
-            color: #ffffff;
+            color: white;
 
             margin-bottom: 10px;
 
             text-shadow:
-                0 0 10px rgba(255, 80, 130, 0.5),
-                0 0 30px rgba(255, 80, 130, 0.2);
+                0 0 10px rgba(255,80,130,.5),
+                0 0 30px rgba(255,80,130,.2);
         }
 
 
-        /* Decorative Line */
+        /* Line */
 
         .line {
 
-            width: 75px;
+            width: 65px;
+
             height: 2px;
 
-            margin: 25px auto;
+            margin: 20px auto;
 
             background: #ff638f;
 
             box-shadow:
-                0 0 10px #ff638f,
-                0 0 25px rgba(255, 99, 143, 0.5);
+                0 0 10px #ff638f;
         }
 
 
@@ -210,29 +221,38 @@
 
         .shayari {
 
-            direction: rtl;
+            width: 100%;
 
-            font-size: clamp(21px, 3vw, 29px);
+            max-width: 100%;
 
-            line-height: 2.35;
+            font-size: clamp(17px, 4vw, 29px);
+
+            line-height: 2.3;
 
             color: #fff2f6;
 
             text-align: center;
 
-            margin: 30px auto;
+            margin: 25px auto;
+
+            word-break: normal;
+
+            overflow-wrap: break-word;
+
+            white-space: normal;
 
             text-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.5);
+                0 2px 8px rgba(0,0,0,.5);
         }
+
 
         .shayari span {
 
             display: block;
+
+            width: 100%;
         }
 
-
-        /* Special Last Question */
 
         .special {
 
@@ -241,16 +261,15 @@
             font-weight: bold;
 
             text-shadow:
-                0 0 8px rgba(255, 100, 150, 0.5),
-                0 0 20px rgba(255, 100, 150, 0.2);
+                0 0 8px rgba(255,100,150,.5);
         }
 
 
-        /* Bottom Text */
+        /* Signature */
 
         .signature {
 
-            margin-top: 30px;
+            margin-top: 25px;
 
             color: #c9a6b2;
 
@@ -260,51 +279,158 @@
         }
 
 
-        /* Heart */
+        /* Big heart */
 
         .heart-big {
 
-            font-size: 35px;
+            font-size: 32px;
 
-            margin-top: 18px;
+            margin-top: 15px;
 
             animation: heartbeat 1.3s infinite;
         }
 
+
         @keyframes heartbeat {
 
-            0%,
-            100% {
+            0%,100% {
                 transform: scale(1);
             }
 
             50% {
                 transform: scale(1.2);
             }
+
         }
 
 
-        /* Mobile */
+        /* PHONE */
 
         @media (max-width: 600px) {
 
             body {
-                padding: 12px;
+
+                padding:
+                    max(15px, env(safe-area-inset-top))
+                    6px
+                    30px;
+
+                display: block;
+
+                overflow-x: hidden;
+
+                overflow-y: auto;
             }
+
 
             .card {
-                padding: 35px 18px;
-                border-radius: 22px;
+
+                width: 100%;
+
+                max-width: none;
+
+                margin: 0;
+
+                padding: 28px 8px;
+
+                border-radius: 18px;
+
+                backdrop-filter: none;
+
+                box-shadow:
+                    0 15px 45px rgba(0,0,0,.6);
             }
 
-            .shayari {
-                font-size: 19px;
-                line-height: 2.2;
-            }
 
             .small {
-                font-size: 10px;
+
+                font-size: 9px;
+
+                letter-spacing: 1px;
+
+                margin-bottom: 8px;
             }
+
+
+            h1 {
+
+                font-size: 38px;
+
+                margin-bottom: 5px;
+            }
+
+
+            .line {
+
+                width: 55px;
+
+                margin: 18px auto;
+            }
+
+
+            .shayari {
+
+                font-size: 17px;
+
+                line-height: 2.4;
+
+                margin: 20px auto;
+
+                padding: 0 2px;
+            }
+
+
+            .signature {
+
+                font-size: 13px;
+
+                margin-top: 20px;
+            }
+
+
+            .heart-big {
+
+                font-size: 28px;
+
+                margin-top: 12px;
+            }
+
+        }
+
+
+        /* SMALL PHONES */
+
+        @media (max-width: 380px) {
+
+            body {
+
+                padding-left: 4px;
+
+                padding-right: 4px;
+            }
+
+
+            .card {
+
+                padding-left: 6px;
+
+                padding-right: 6px;
+            }
+
+
+            h1 {
+
+                font-size: 33px;
+            }
+
+
+            .shayari {
+
+                font-size: 15.5px;
+
+                line-height: 2.45;
+            }
+
         }
 
     </style>
@@ -314,8 +440,7 @@
 
 <body>
 
-
-    <!-- Floating Hearts -->
+    <!-- Floating hearts -->
 
     <div class="heart">♥</div>
     <div class="heart">♡</div>
@@ -323,11 +448,9 @@
     <div class="heart">♡</div>
 
 
-
-    <!-- Main Shayari -->
+    <!-- Main content -->
 
     <div class="card">
-
 
         <div class="small">
             کچھ الفاظ، صرف تمہارے لیے
@@ -342,7 +465,6 @@
         <div class="line"></div>
 
 
-
         <div class="shayari">
 
             <span>
@@ -352,7 +474,6 @@
             <span>
                 ہم اندھیروں میں تیرا نام سجائے بیٹھے ہیں۔
             </span>
-
 
             <br>
 
@@ -365,7 +486,6 @@
                 اور ہم تجھ کو ہر اِک درد بتائے بیٹھے ہیں۔
             </span>
 
-
             <br>
 
 
@@ -376,7 +496,6 @@
             <span>
                 اُسی کو کھونے کا ماتم منائے بیٹھے ہیں۔
             </span>
-
 
             <br>
 
@@ -389,7 +508,6 @@
                 ہم تیری راہ میں اب تک نظریں بچھائے بیٹھے ہیں۔
             </span>
 
-
             <br>
 
 
@@ -400,7 +518,6 @@
             <span>
                 پھر بھی الزام تجھے دینے سے گھبرائے بیٹھے ہیں۔
             </span>
-
 
             <br>
 
@@ -413,7 +530,6 @@
                 ہم اُسی جھوٹ کو سچ مان کر جیتے آئے بیٹھے ہیں۔
             </span>
 
-
             <br>
 
 
@@ -424,7 +540,6 @@
             <span class="special">
                 کس کے لیے یوں خود کو مٹائے بیٹھے ہیں؟
             </span>
-
 
             <br>
 
@@ -440,11 +555,10 @@
         </div>
 
 
-
         <div class="line"></div>
 
 
-        <div class="signature"> 
+        <div class="signature">
             سالار❤️
         </div>
 
@@ -453,11 +567,9 @@
             ❤️
         </div>
 
-
     </div>
 
 
 </body>
 
 </html>
-```
