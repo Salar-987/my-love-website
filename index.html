@@ -1,13 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>میری شاعری ❤️</title>
+    <title>صرف تمہارے لیے ❤️</title>
 
     <style>
 
@@ -29,25 +29,10 @@
             min-height: 100vh;
             min-height: 100dvh;
 
-            padding: 25px 10px 40px;
-
             background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    #5a102d 0%,
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 80% 80%,
-                    #3d0b25 0%,
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #090005,
-                    #250817,
-                    #100007
-                );
+                radial-gradient(circle at 20% 20%, #5a102d 0%, transparent 35%),
+                radial-gradient(circle at 80% 80%, #3d0b25 0%, transparent 35%),
+                linear-gradient(135deg, #090005, #250817, #100007);
 
             color: white;
 
@@ -62,23 +47,18 @@
         }
 
 
-        /* Floating hearts */
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
 
         .heart {
             position: fixed;
-
             bottom: -50px;
-
             color: #ff5c91;
-
             font-size: 20px;
-
             opacity: 0;
-
             animation: floating 9s linear infinite;
-
             pointer-events: none;
-
             z-index: 1;
         }
 
@@ -120,7 +100,232 @@
         }
 
 
-        /* Main card */
+        /* =========================
+           PASSWORD SCREEN
+        ========================= */
+
+        #lockScreen {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4d0d28 0%,
+                    #1c0613 45%,
+                    #080004 100%
+                );
+
+            transition:
+                opacity 1.2s ease,
+                visibility 1.2s ease;
+        }
+
+
+        #lockScreen.hide {
+
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+
+        }
+
+
+        .lockBox {
+
+            width: 100%;
+            max-width: 430px;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,.055);
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.7),
+                0 0 40px rgba(255,60,120,.08);
+
+            backdrop-filter: blur(15px);
+
+            animation: lockAppear 1.5s ease;
+        }
+
+
+        @keyframes lockAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(.85) translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+
+        }
+
+
+        .lockHeart {
+
+            font-size: 55px;
+
+            margin-bottom: 15px;
+
+            animation: heartbeat 1.4s infinite;
+
+            filter:
+                drop-shadow(0 0 15px rgba(255,80,130,.7));
+        }
+
+
+        .secret {
+
+            color: #ff9ab7;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lockTitle {
+
+            font-size: clamp(28px, 7vw, 42px);
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 15px rgba(255,80,130,.5);
+        }
+
+
+        .lockText {
+
+            color: #e9cbd4;
+
+            font-size: 18px;
+
+            line-height: 2;
+
+            margin-bottom: 25px;
+        }
+
+
+        .passwordInput {
+
+            width: 100%;
+
+            padding: 15px 18px;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(255,120,160,.35);
+
+            outline: none;
+
+            background: rgba(0,0,0,.3);
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            font-family: Arial, sans-serif;
+
+            transition: .3s;
+        }
+
+
+        .passwordInput:focus {
+
+            border-color: #ff6f9b;
+
+            box-shadow:
+                0 0 20px rgba(255,80,130,.25);
+
+        }
+
+
+        .unlockBtn {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f83,
+                    #c92c63
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(255,50,110,.25);
+
+            transition: .3s;
+        }
+
+
+        .unlockBtn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(255,50,110,.4);
+
+        }
+
+
+        .error {
+
+            min-height: 25px;
+
+            margin-top: 15px;
+
+            color: #ff8eae;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
 
         .card {
 
@@ -150,6 +355,35 @@
                 0 25px 80px rgba(0,0,0,.65);
 
             animation: appear 1s ease;
+
+        }
+
+
+        /* Initially hidden */
+
+        #mainContent {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s ease;
+
+        }
+
+
+        #mainContent.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+            pointer-events: auto;
+
         }
 
 
@@ -168,8 +402,6 @@
         }
 
 
-        /* Small heading */
-
         .small {
 
             color: #ff8eae;
@@ -183,8 +415,6 @@
             margin-bottom: 12px;
         }
 
-
-        /* Main heading */
 
         h1 {
 
@@ -200,8 +430,6 @@
         }
 
 
-        /* Line */
-
         .line {
 
             width: 65px;
@@ -216,8 +444,6 @@
                 0 0 10px #ff638f;
         }
 
-
-        /* Shayari */
 
         .shayari {
 
@@ -265,8 +491,6 @@
         }
 
 
-        /* Signature */
-
         .signature {
 
             margin-top: 25px;
@@ -278,8 +502,6 @@
             font-size: 14px;
         }
 
-
-        /* Big heart */
 
         .heart-big {
 
@@ -304,22 +526,32 @@
         }
 
 
-        /* PHONE */
+        /* =========================
+           PHONE
+        ========================= */
 
         @media (max-width: 600px) {
 
-            body {
+            .lockBox {
 
-                padding:
-                    max(15px, env(safe-area-inset-top))
-                    6px
-                    30px;
+                padding: 38px 20px;
 
-                display: block;
+                border-radius: 22px;
 
-                overflow-x: hidden;
+            }
 
-                overflow-y: auto;
+
+            .lockHeart {
+
+                font-size: 48px;
+
+            }
+
+
+            .lockText {
+
+                font-size: 16px;
+
             }
 
 
@@ -329,16 +561,12 @@
 
                 max-width: none;
 
-                margin: 0;
-
                 padding: 28px 8px;
 
                 border-radius: 18px;
 
                 backdrop-filter: none;
 
-                box-shadow:
-                    0 15px 45px rgba(0,0,0,.6);
             }
 
 
@@ -349,6 +577,7 @@
                 letter-spacing: 1px;
 
                 margin-bottom: 8px;
+
             }
 
 
@@ -357,6 +586,7 @@
                 font-size: 38px;
 
                 margin-bottom: 5px;
+
             }
 
 
@@ -365,6 +595,7 @@
                 width: 55px;
 
                 margin: 18px auto;
+
             }
 
 
@@ -377,6 +608,7 @@
                 margin: 20px auto;
 
                 padding: 0 2px;
+
             }
 
 
@@ -385,6 +617,7 @@
                 font-size: 13px;
 
                 margin-top: 20px;
+
             }
 
 
@@ -393,34 +626,27 @@
                 font-size: 28px;
 
                 margin-top: 12px;
+
             }
 
         }
 
 
-        /* SMALL PHONES */
-
         @media (max-width: 380px) {
-
-            body {
-
-                padding-left: 4px;
-
-                padding-right: 4px;
-            }
-
 
             .card {
 
                 padding-left: 6px;
 
                 padding-right: 6px;
+
             }
 
 
             h1 {
 
                 font-size: 33px;
+
             }
 
 
@@ -429,6 +655,7 @@
                 font-size: 15.5px;
 
                 line-height: 2.45;
+
             }
 
         }
@@ -440,6 +667,7 @@
 
 <body>
 
+
     <!-- Floating hearts -->
 
     <div class="heart">♥</div>
@@ -448,128 +676,249 @@
     <div class="heart">♡</div>
 
 
-    <!-- Main content -->
+    <!-- =========================
+         PASSWORD SCREEN
+    ========================= -->
 
-    <div class="card">
+    <div id="lockScreen">
 
-        <div class="small">
-            کچھ الفاظ، صرف تمہارے لیے
-        </div>
+        <div class="lockBox">
 
+            <div class="lockHeart">
+                ❤️
+            </div>
 
-        <h1>
-            نبض قلبي
-        </h1>
+            <div class="secret">
+                A LITTLE SECRET
+            </div>
 
+            <div class="lockTitle">
+                صرف تمہارے لیے
+            </div>
 
-        <div class="line"></div>
+            <div class="lockText">
+            ? The Name Of Love <br>محبت کا نام ؟<br>❤️
+            </div>
 
+            <input
+                type="password"
+                id="password"
+                class="passwordInput"
+                placeholder="password is answer"
+                autocomplete="off"
+            >
 
-        <div class="shayari">
+            <button
+                class="unlockBtn"
+                onclick="unlock()">
+                🩵 
+            </button>
 
-            <span>
-                تیری یادوں کا دیا اب بھی جلائے بیٹھے ہیں،
-            </span>
+            <div id="error" class="error"></div>
 
-            <span>
-                ہم اندھیروں میں تیرا نام سجائے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                تو نے پوچھا بھی نہیں حال کبھی دل کا میرے،
-            </span>
-
-            <span>
-                اور ہم تجھ کو ہر اِک درد بتائے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                جسے پانے کی تمنا تھی ہمیں عمروں سے،
-            </span>
-
-            <span>
-                اُسی کو کھونے کا ماتم منائے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                تو کسی اور کی دنیا میں بہت خوش ہوگا،
-            </span>
-
-            <span>
-                ہم تیری راہ میں اب تک نظریں بچھائے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                ہم نے مانا کہ تجھے عشق نہیں تھا ہم سے،
-            </span>
-
-            <span>
-                پھر بھی الزام تجھے دینے سے گھبرائے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                کتنی معصوم تھی امید تیرے لوٹ آنے کی،
-            </span>
-
-            <span>
-                ہم اُسی جھوٹ کو سچ مان کر جیتے آئے بیٹھے ہیں۔
-            </span>
-
-            <br>
-
-
-            <span>
-                اب تو آنسو بھی میری آنکھ سے تھک کر پوچھتے ہیں،
-            </span>
-
-            <span class="special">
-                کس کے لیے یوں خود کو مٹائے بیٹھے ہیں؟
-            </span>
-
-            <br>
-
-
-            <span>
-                تو نے تو چھوڑ دیا تھا مجھے کب کا لیکن،
-            </span>
-
-            <span>
-                ہم ہیں کہ آج بھی تجھ کو اپنا بنائے بیٹھے ہیں۔
-            </span>
-
-        </div>
-
-
-        <div class="line"></div>
-
-
-        <div class="signature">
-        ❤️
-        </div>
-
-
-        <div class="heart-big">
-            ❤️
         </div>
 
     </div>
 
 
+    <!-- =========================
+         SHAYARI
+    ========================= -->
+
+    <div id="mainContent">
+
+        <div class="card">
+
+            <div class="small">
+                کچھ الفاظ، صرف تمہارے لیے
+            </div>
+
+
+            <h1>
+                نبض قلبي
+            </h1>
+
+
+            <div class="line"></div>
+
+
+            <div class="shayari">
+
+                <span>
+                    تیری یادوں کا دیا اب بھی جلائے بیٹھے ہیں،
+                </span>
+
+                <span>
+                    ہم اندھیروں میں تیرا نام سجائے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    تو نے پوچھا بھی نہیں حال کبھی دل کا میرے،
+                </span>
+
+                <span>
+                    اور ہم تجھ کو ہر اِک درد بتائے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    جسے پانے کی تمنا تھی ہمیں عمروں سے،
+                </span>
+
+                <span>
+                    اُسی کو کھونے کا ماتم منائے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    تو کسی اور کی دنیا میں بہت خوش ہوگا،
+                </span>
+
+                <span>
+                    ہم تیری راہ میں اب تک نظریں بچھائے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    ہم نے مانا کہ تجھے عشق نہیں تھا ہم سے،
+                </span>
+
+                <span>
+                    پھر بھی الزام تجھے دینے سے گھبرائے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    کتنی معصوم تھی امید تیرے لوٹ آنے کی،
+                </span>
+
+                <span>
+                    ہم اُسی جھوٹ کو سچ مان کر جیتے آئے بیٹھے ہیں۔
+                </span>
+
+                <br>
+
+
+                <span>
+                    اب تو آنسو بھی میری آنکھ سے تھک کر پوچھتے ہیں،
+                </span>
+
+                <span class="special">
+                    کس کے لیے یوں خود کو مٹائے بیٹھے ہیں؟
+                </span>
+
+                <br>
+
+
+                <span>
+                    تو نے تو چھوڑ دیا تھا مجھے کب کا لیکن،
+                </span>
+
+                <span>
+                    ہم ہیں کہ آج بھی تجھ کو اپنا بنائے بیٹھے ہیں۔
+                </span>
+
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <div class="signature">
+                سالار❤️
+            </div>
+
+
+            <div class="heart-big">
+                ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PASSWORD SCRIPT
+    ========================= -->
+
+    <script>
+
+        function unlock() {
+
+            const password =
+                document.getElementById("password").value;
+
+            const error =
+                document.getElementById("error");
+
+            const lockScreen =
+                document.getElementById("lockScreen");
+
+            const mainContent =
+                document.getElementById("mainContent");
+
+
+            if (password === "salar") {
+
+                error.innerHTML =
+                    "دل کا دروازہ کھل گیا ❤️";
+
+                setTimeout(() => {
+
+                    lockScreen.classList.add("hide");
+
+                    setTimeout(() => {
+
+                        mainContent.classList.add("show");
+
+                    }, 500);
+
+                }, 700);
+
+            }
+
+            else {
+
+                error.innerHTML =
+                    "پاس ورڈ غلط ہے... شاید تم بھول گئی ہو ❤️";
+
+                document.getElementById("password").value = "";
+
+            }
+
+        }
+
+
+        /* Press Enter to unlock */
+
+        document
+            .getElementById("password")
+            .addEventListener("keydown", function(event) {
+
+                if (event.key === "Enter") {
+
+                    unlock();
+
+                }
+
+            });
+
+    </script>
+
+
 </body>
 
 </html>
+```
